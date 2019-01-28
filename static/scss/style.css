@@ -1,0 +1,263 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  width: 100%;
+}
+
+body {
+  background: black;
+  color: white;
+}
+
+.app {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 20px;
+  width: 320px;
+  margin: auto;
+}
+
+@media (max-width: 480px) {
+  .app {
+    width: 100%;
+  }
+}
+
+.app .play {
+  text-align: center;
+}
+
+.app .play .music {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+}
+
+.app .play .music .switch {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 0 20px;
+  width: 60px;
+  height: 34px;
+}
+
+.app .play .music .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.app .play .music .switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.app .play .music .switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.app .play .music .switch input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.app .play .music .switch input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #2196f3;
+          box-shadow: 0 0 1px #2196f3;
+}
+
+.app .play .music .switch input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+          transform: translateX(26px);
+}
+
+.app .play button {
+  cursor: pointer;
+  background: deepskyblue;
+  font-size: 24px;
+  margin: 30px 0;
+  padding: 15px 20px;
+  border-radius: 4px;
+  text-align: center;
+  -webkit-transition-duration: 0.7s;
+          transition-duration: 0.7s;
+}
+
+.app .play button:hover {
+  background: #fff;
+  -webkit-box-shadow: 0px 2px 10px 5px #97b1bf;
+          box-shadow: 0px 2px 10px 5px #97b1bf;
+  color: #000;
+}
+
+.app .timer {
+  background: lightgrey;
+  height: 4px;
+}
+
+.app .timer .time-left {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background: red;
+  height: 100%;
+  width: 50%;
+}
+
+.app .task {
+  position: relative;
+  padding: 10px 0;
+  text-align: center;
+  text-shadow: 1px 2px 3px #333;
+  border-bottom: 4px solid lightgray;
+}
+
+.app .task:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.app .task.success:before {
+  background: lightgreen;
+  -webkit-animation: successAnswer 0.3s;
+          animation: successAnswer 0.3s;
+}
+
+@-webkit-keyframes successAnswer {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes successAnswer {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.app .task.failure:before {
+  background: #e22200;
+  -webkit-animation: wrongAnswer 0.3s;
+          animation: wrongAnswer 0.3s;
+}
+
+@-webkit-keyframes wrongAnswer {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes wrongAnswer {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.app .input {
+  padding: 20px 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.app .score {
+  padding: 10px 0;
+  font-size: 24px;
+}
+
+.app .mistakes {
+  padding: 10px 0;
+  font-size: 24px;
+}
+
+.app .controllers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  border: 3px solid black;
+}
+
+.app .controllers button {
+  cursor: pointer;
+  font-size: 25px;
+  background: black;
+  color: white;
+  border: 2px solid black;
+  margin: 5px 0;
+  padding: 10px;
+  width: 30%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border-color: white;
+}
+
+.app .controllers button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.app .controllers button img {
+  width: 24px;
+}

@@ -1,0 +1,9 @@
+@mixin breakpoint($width) {
+  @if $width == $width {
+    @media (max-width: $width) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}
