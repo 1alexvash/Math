@@ -1,13 +1,19 @@
 {
   "name": "create-next-example-app",
+  "homepage": "https://1alexvash.github.io/MathApp/",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d .next"
   },
   "dependencies": {
     "next": "7.0.2",
     "react": "16.7.0",
     "react-dom": "16.7.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }
