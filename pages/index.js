@@ -7,6 +7,7 @@ import Input from "../components/Input";
 
 class Home extends Component {
   state = {
+    preloader: true,
     playing: false,
     buttons: [1, 2, 3, 4, 5, 6, 7, 8, 9, "accept", 0, "remove"],
     task: "",
@@ -20,6 +21,7 @@ class Home extends Component {
   };
 
   componentDidMount() {
+    setTimeout(() => this.setState({ preloader: false }), 5000);
     document.body.addEventListener("keydown", e => {
       if (e.keyCode === 13 && this.state.playing === false) {
         this.startGame();
@@ -128,9 +130,21 @@ class Home extends Component {
     this.setState({ task, result });
   }
   render() {
+    const Preloader = this.state.preloader ? (
+      <div className="preloader">
+        <div className="preloader-content">
+          <img src="/static/images/512-icon.png" className="logo" alt="logo" />
+          <p>Loading...</p>
+        </div>
+      </div>
+    ) : (
+      ""
+    );
+
     return (
       <div className="app">
         <Head />
+        {Preloader}
         {this.state.playing ? (
           <div>
             <Sounds />
@@ -183,9 +197,3 @@ class Home extends Component {
 }
 
 export default Home;
-
-/*
-  Animation of the bad/good answer
-  Upload to the cloud
-  Test in mobile
-*/
